@@ -47,4 +47,4 @@ Neste projeto, utilizei o Python com o Pandas para o tratamento dos dados e util
 
 ## Acesso ao Projeto
 
-Para visualizar o dashboard e as análises completas no Power BI, acesse o link: [Dashboard do Projeto no Power BI](https://app.powerbi.com/view?r=eyJrIjoiMDM2MTc1NWUtOWFiNC00NDk5LTkwNWMtNTVlMzZiMzMwZmVhIiwidCI6IjEzYjY2NjJlLWYyYjMtNDk3Ny1iNGNlLWEyZmIzMWU5ZjhiZCJ9)
+Para visualizar o dashboard e as análises completas no Power BI, [clique aqui para abrir em outra página](https://app.powerbi.com/view?r=eyJrIjoiMDM2MTc1NWUtOWFiNC00NDk5LTkwNWMtNTVlMzZiMzMwZmVhIiwidCI6IjEzYjY2NjJlLWYyYjMtNDk3Ny1iNGNlLWEyZmIzMWU5ZjhiZCJ9).
