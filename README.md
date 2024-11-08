@@ -10,14 +10,26 @@ Este projeto tem como objetivo analisar os dados de lançamento de um produto di
 3. **Visualização de Dados:** Carregamento dos dados no Power BI para criação de relatórios e dashboards interativos.
 
 ### Arquitetura Ideal
-1. **Ingestão de Dados:** Ingestão dos dados via API ou arquivos CSV.
-2. **Armazenamento:** Carregamento dos dados em um Data Lake na nuvem, como o Azure Data Lake Storage.
-3. **Estrutura Medallion (Bronze, Silver, Gold):** Organização dos dados em camadas para garantir qualidade, acessibilidade e organização:
-   - **Bronze (Raw):** Dados brutos, no formato original.
+1. **Ingestão de Dados:**
+   - **Dados Estáticos:** Arquivos CSV ou ingestão via API.
+   - **Dados em Tempo Real:** O Apache Kafka gerencia a ingestão de dados em tempo real, especialmente de eventos como cliques ou interações de campanha.
+  
+2. **Armazenamento:**
+   - Carregamento dos dados em um **Data Lake** na nuvem, como o **Azure Data Lake Storage**.
+   - Para dados em tempo real, o **Kafka Connect** facilita a integração com o armazenamento em nuvem, transferindo dados diretamente do Kafka para o data lake.
+
+3. **Estrutura Medallion (Bronze, Silver, Gold):**
+   - **Bronze (Raw):** Dados brutos armazenados diretamente no data lake, incluindo dados em tempo real transmitidos pelo Kafka.
    - **Silver (Refined):** Dados transformados e limpos, prontos para análise intermediária.
-   - **Gold (Curated):** Dados finais organizados para análise e consumo no data warehouse.
-4. **Processamento e Orquestração:** Utilização do Azure Data Factory para orquestração do fluxo de dados e do Databricks para tratamento e transformação dos dados.
-5. **Data Warehouse e Visualização:** Estruturação dos dados no formato de data warehouse, com as relações adequadas. Envio para o Power BI ou outras ferramentas de visualização para análise e insights.
+   - **Gold (Curated):** Dados finais organizados e estruturados para análises e consumo em um data warehouse.
+
+4. **Processamento e Orquestração:**
+   - **Azure Data Factory**: Orquestração do fluxo de dados entre as diferentes camadas e sistemas.
+   - **Databricks**: Utilizado para processamento de dados em lote e em tempo real, com integração nativa com Kafka para transformar e enriquecer os dados antes de movê-los para a camada Silver ou Gold.
+
+5. **Data Warehouse e Visualização:**
+   - Estruturação dos dados no formato de data warehouse para consultas analíticas e visualização.
+   - **Power BI**: Conectado ao data warehouse ou, se necessário, às camadas Silver e Gold do data lake para visualização de insights quase em tempo real.
 
 ## Insights do Projeto
 
